@@ -6,19 +6,19 @@ const app = express();
 
 const PORT = 8000;
 
-mongoose.connect("mongodb://localhost:27017/GitBit").then(() => {
+const MongoURI = "mongodb+srv://gitbitdatabase:GitBiting404@gitbit.x9gge.mongodb.net/?retryWrites=true&w=majority&appName=GitBit";
+
+mongoose.connect(MongoURI).then(() => {
   console.log("Connected to MongoDB");
 });
 
-app.set("view engine", "ejs");
-app.set("views", path.resolve("./views"));
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.render("home");
-    }
-);
+// app.get("/", (req, res) => {
+//     res.render("home");
+//     }
+// );
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
